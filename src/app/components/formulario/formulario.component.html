@@ -1,0 +1,118 @@
+<!--<form [formGroup]="formHerrera" (ngSubmit)="enviarDatos()">-->
+
+<!--  <p>-->
+<!--    <label for="firstname">First Name </label>-->
+<!--    <input type="text" id="firstname" name="firstname" formControlName="firstname">-->
+<!--  </p>-->
+
+<!--  <p>-->
+<!--    <label for="lastname">Last Name </label>-->
+<!--    <input type="text" id="lastname" name="lastname" formControlName="lastname">-->
+<!--  </p>-->
+
+<!--  <p>-->
+<!--    <label for="email">Email </label>-->
+<!--    <input type="text" id="email" name="email" formControlName="email">-->
+<!--  </p>-->
+
+<!--  <p>-->
+<!--    <label for="gender">Geneder </label>-->
+<!--    <input type="radio" value="male" id="gender" name="gender" formControlName="gender"> Male-->
+<!--    <input type="radio" value="female" id="gender" name="gender" formControlName="gender"> Female-->
+<!--  </p>-->
+
+<!--  <p>-->
+<!--    <label for="isMarried">Married </label>-->
+<!--    <input type="checkbox" id="isMarried" name="isMarried" formControlName="isMarried">-->
+<!--  </p>-->
+<div class="container register-data">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="fade show active text-align form-new">
+                <h3 class="register-data-heading">Registro de trabajadores</h3>
+                <div class="row register-data-form">
+                    <div class="col-md-12">
+                        <form [formGroup]="formHerrera" (ngSubmit)="enviarDatos()">
+                            <div class="mb-3">
+                                <label for="id_nombres" class="form-label label-custom">Nombres</label>
+                                <input type="text" class="form-control" formControlName="nombres" id="id_nombres" placeholder="Nombres completos" autofocus>
+                                <div class="form-no-valid" *ngIf="formHerrera.controls['nombres'].dirty && formHerrera.controls['nombres'].errors?.['required']">El campo nombres es requerido</div>
+                                <div class="form-no-valid" *ngIf="formHerrera.controls['nombres'].dirty && formHerrera.controls['nombres'].errors?.['minlength']">El campo nombres debe tener mínimo {{ formHerrera.controls['nombres'].errors?.['minlength']['requiredLength'] }} caracteres</div>
+                                <div class="form-no-valid" *ngIf="formHerrera.controls['nombres'].dirty && formHerrera.controls['nombres'].errors?.['maxlength']">El campo nombres debe tener máximo {{ formHerrera.controls['nombres'].errors?.['maxlength']['requiredLength'] }} caracteres</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="id_edad" class="form-label label-custom">Edad</label>
+                                <input type="number" min="18" class="form-control" formControlName="edad" id="id_edad" placeholder="Edad">
+                                <div class="form-no-valid" *ngIf="formHerrera.controls['edad'].dirty && formHerrera.controls['edad'].errors?.['required']">El campo edad es requerido</div>
+                                <div class="form-no-valid" *ngIf="formHerrera.controls['edad'].dirty && formHerrera.controls['edad'].errors?.['min']">En el campo edad debe ingresar mínimo {{ formHerrera.controls['edad'].errors?.['min']['min'] }} años</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="id_email" class="form-label label-custom">Correo electrónico</label>
+                                <input type="email" class="form-control" formControlName="email" id="id_email" placeholder="Correo electrónico">
+                                <div class="form-no-valid" *ngIf="formHerrera.controls['email'].dirty && formHerrera.controls['email'].errors?.['required']">El campo correo electrónico es requerido</div>
+                                <div class="form-no-valid" *ngIf="formHerrera.controls['email'].dirty && formHerrera.controls['email'].errors?.['pattern']">El campo correo electrónico no cumple con un formato correcto</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="id_foto" class="form-label label-custom">Foto</label>
+                                <input type="file" class="form-control" formControlName="foto" id="id_foto">
+                            </div>
+                            <div class="mb-3">
+                                <label for="id_color" class="form-label label-custom">Color favorito</label>
+                                <input type="color" class="form-control" formControlName="color" id="id_color">
+                            </div>
+                            <div class="mb-3">
+                                <label for="id_estado_civil" class="form-label label-custom">Estado civil</label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm" formControlName="estadoCivil" id="id_estado_civil">
+                                    <option selected disabled>Elija una opción</option>
+                                    <option value="soltero">Soltero</option>
+                                    <option value="casado">Casado</option>
+                                    <option value="divorciado">Divorciado</option>
+                                    <option value="viudo">Viudo</option>
+                                    <option value="hecho">Unión de hechos</option>
+                                </select>
+                                <div class="form-no-valid" *ngIf="formHerrera.controls['estadoCivil'].errors?.['required']">El campo estado civil es requerido</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="masculino" class="form-label label-custom">Género</label>
+                                <div class="form-check form-check-white">
+                                    <input class="form-check-input" type="radio" name="genero" formControlName="genero" value="masculino" id="masculino">
+                                    <label class="form-check-label" for="masculino">Masculino</label>
+                                </div>
+                                <div class="form-check form-check-white">
+                                    <input class="form-check-input" type="radio" name="genero" formControlName="genero" value="femenino" id="femenino">
+                                    <label class="form-check-label" for="femenino">Femenino</label>
+                                </div>
+                                <div class="form-no-valid" *ngIf="formHerrera.controls['genero'].errors?.['required']">El campo género es requerido</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="id_tiene_empleo" class="form-label label-custom">Tiene empleo</label>
+                                <div class="form-check form-check-white">
+                                    <input class="form-check-input" type="checkbox" formControlName="tieneEmpleo" id="id_tiene_empleo">
+                                    <label class="form-check-label" for="id_tiene_empleo">SI</label>
+                                </div>
+                            </div>
+                            <div class="mb-3" *ngIf="formHerrera.controls['tieneEmpleo'].value">
+                                <label for="id_lugar_empleo" class="form-label label-custom">Lugar de empleo</label>
+                                <input type="text" class="form-control" formControlName="lugarEmpleo" id="id_lugar_empleo" placeholder="Lugar de trabajo">
+                            </div>
+                            <div class="mb-3">
+                                <label for="id_descripcion" class="form-label label-custom">Descripción</label>
+                                <textarea class="form-control" formControlName="descripcion" id="id_descripcion" placeholder="Ingrese una descripción" rows="3"></textarea>
+                                <div class="form-no-valid" *ngIf="formHerrera.controls['descripcion'].dirty && formHerrera.controls['descripcion'].errors?.['maxlength']">El campo descripción debe tener máximo {{ formHerrera.controls['descripcion'].errors?.['maxlength']['requiredLength'] }} caracteres</div>
+                            </div>
+                            <div class="alert alert-danger" role="alert" *ngIf="hasError">
+                                Existen valores incorrectos en el formulario. Revise por favor.
+                            </div>
+                            <div class="alert alert-info" role="alert" *ngIf="formValid">
+                                El formulario pasó las validaciones
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn-register-data" value="Guardar"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

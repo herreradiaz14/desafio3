@@ -1,0 +1,52 @@
+.btn-register-data {
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #ffffff;
+    background-color: #000e20;
+    border: none;
+    cursor: pointer;
+    margin-right: 6%;
+    margin-top: 4%;
+}
+.text-align{
+    margin-top: -3%;
+    margin-bottom: -9%;
+    padding: 10%;
+    margin-left: 30%;
+}
+.form-new {
+    margin-right: 22%;
+    margin-left: 20%;
+}
+.register-data-heading {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #e9ecef;
+}
+
+.register-data{
+    background: -webkit-linear-gradient(left, #31af69, #153d48);
+    margin-top: 3%;
+    padding: 3%;
+    border-radius: 2.5rem;
+}
+
+.label-custom {
+    color: #ede7e1;
+    font-weight: bold;
+}
+.form-check-white {
+    color: #ffffff;
+}
+.form-check-input:checked {
+    background-color: red;
+    border-color: red;
+}
+
+.form-no-valid {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: .875em;
+    color: #fdcb14;
+}
